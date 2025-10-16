@@ -13,8 +13,6 @@ void inicializarTabuleiro(char tabuleiro[TAM][TAM]) {
             tabuleiro[i][j] = AGUA;
         }
     }
-<<<<<<< HEAD
-=======
 }
 
 void imprimirTabuleiro(char tabuleiro[TAM][TAM]) {
@@ -74,5 +72,4 @@ void posicionarNaviosAutomatico(char tabuleiro[TAM][TAM]) {
 int main() {
     char tabuleiro[TAM][TAM];
     
->>>>>>> 7133827 (Funções para gerar navios e tag de navio)
 }
