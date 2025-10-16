@@ -1,6 +1,4 @@
-#include <stdio.h>
-#include <stdlib.h>
-
+//apenas para testes, tabuleiro de verificação
 #define TAM 10 //tabuleiro 10x10
 #define AGUA '~' //símbolo da água
 #define  NAVIO 'N' //símbolo do navio
@@ -11,4 +9,63 @@ void inicializarTabuleiro(char tabuleiro[TAM][TAM]) {
             tabuleiro[i][j] = AGUA;
         }
     }
+}
+
+void imprimirTabuleiro(char tabuleiro[TAM][TAM]) {
+    printf("\n ");
+    for (int i = 0; i < TAM; i++) printf("%d ", i);
+    printf("\n ");
+
+    for (int i = 0; i < TAM; i++) {
+        printf("%2d ", i);
+        for (int j = 0; j < TAM; j++) {
+            printf("%c ", tabuleiro[i][j]);
+        }
+        printf("\n");
+    }
+}
+//parte dos navios!!
+int podeColocar(char tabuleiro[TAM][TAM], int linha, int coluna, int tamanho, char direcao) {
+    if (direcao == 'H') {
+        if (coluna + tamanho > TAM) return 0;
+        for (int i = 0; i < tamanho; i++) {
+            if (tabuleiro[linha][coluna + i] != AGUA) return 0;
+        }
+    } else {
+        return 0;
+    }
+    return 1;
+}
+//colocando os navios no tabuleiro
+void colocarNavio(char tabuleiro[TAM][TAM], int linha, int coluna, int tamanho, char direcao) {
+    if (direcao == 'H') {
+        for  (int i = 0; i < tamanho; i++) tabuleiro[linha][coluna + i] = NAVIO;
+    } else {
+        for (int i = 0; i < tamanho; i++) tabuleiro[linha + i][coluna] = NAVIO;
+    }
+}
+//colocando os navios automaticamente
+void posicionarNaviosAutomatico(char tabuleiro[TAM][TAM]) {
+    int tamanhos[] = {4, 3, 3, 2, 2};
+    int numNavios = 5;
+
+    srand(time(NULL)); //gera números aleatórios a cada execução
+
+    for (int n = 0; n < numNavios; n++) {
+        int linha, coluna;
+        char direcao;
+
+        do {
+            linha = rand() % TAM;
+            coluna = rand() % TAM;
+            direcao = (rand() % 2 == 0) ? 'H' : 'V'; // H:horizontal V:vertical
+        } while (!podeColocar(tabuleiro, linha, coluna, tamanhos[n], direcao));
+
+        colocarNavio(tabuleiro, linha, coluna, tamanhos[n], direcao);
+    }
+}
+
+int main() {
+    char tabuleiro[TAM][TAM];
+    
 }
