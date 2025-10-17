@@ -1,11 +1,13 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <time.h>
 
-//apenas para testes, tabuleiro de verificação
 #define TAM 10 //tabuleiro 10x10
 #define AGUA '~' //símbolo da água
 #define  NAVIO 'N' //símbolo do navio
+
+#define NUM_NAVIOS 5 //número de navios no tabuleiro
 
 void inicializarTabuleiro(char tabuleiro[TAM][TAM]) {
     for (int i = 0; i   <TAM; i++) {
@@ -15,19 +17,6 @@ void inicializarTabuleiro(char tabuleiro[TAM][TAM]) {
     }
 }
 
-void imprimirTabuleiro(char tabuleiro[TAM][TAM]) {
-    printf("\n ");
-    for (int i = 0; i < TAM; i++) printf("%d ", i);
-    printf("\n ");
-
-    for (int i = 0; i < TAM; i++) {
-        printf("%2d ", i);
-        for (int j = 0; j < TAM; j++) {
-            printf("%c ", tabuleiro[i][j]);
-        }
-        printf("\n");
-    }
-}
 //parte dos navios!!
 int podeColocar(char tabuleiro[TAM][TAM], int linha, int coluna, int tamanho, char direcao) {
     if (direcao == 'H') {
@@ -69,7 +58,7 @@ void posicionarNaviosAutomatico(char tabuleiro[TAM][TAM]) {
     }
 }
 
-int main() {
-    char tabuleiro[TAM][TAM];
-    
+void setupTabuleiroComNavios(char tabuleiro[TAM][TAM]) {
+    inicializarTabuleiro(tabuleiro);
+    posicionarNaviosAutomatico(tabuleiro);
 }
