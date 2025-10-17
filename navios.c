@@ -6,10 +6,6 @@
 #define AGUA '~' //símbolo da água
 #define  NAVIO 'N' //símbolo do navio
 
-// apenas para debug
-// #define AGUA '0' //símbolo da água
-// #define  NAVIO '1' //símbolo do navio
-
 #define NUM_NAVIOS 5 //número de navios no tabuleiro
 
 void inicializarTabuleiro(char tabuleiro[TAM][TAM]) {
