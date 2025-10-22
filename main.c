@@ -1,5 +1,18 @@
 #include <stdio.h>
+#include <stdlib.h>
 #include "tabuleiro.c"
+
+// verifica se ainda tem navios no tabuleiro inimigo
+int verificarVitoria(char tabuleiro[TAM][TAM]) {
+    for (int i = 0; i < TAM; i++) {
+        for (int j = 0; j < TAM; j++) {
+            if (tabuleiro[i][j] == NAVIO) {
+                return 0; // ainda há navios
+            }
+        }
+    }
+    return 1; // nenhum navio restante
+}
 
 int main() {
     printf("BATALHA NAVAL\n");
@@ -28,7 +41,7 @@ int main() {
             tentativaAcerto(tabuleiro2, visivel1);
 
             if (verificarVitoria(tabuleiro2)) {
-                printf("\n Jogador 1 ganhou! \n");
+                printf("\nJogador 1 ganhou!\n");
                 break;
             }
 
@@ -38,7 +51,7 @@ int main() {
             tentativaAcerto(tabuleiro1, visivel2);
 
             if (verificarVitoria(tabuleiro1)) {
-                printf("\n*** Jogador 2 ganhou!!! ***\n");
+                printf("\nJogador 2 ganhou!\n");
                 break;
             }
 
@@ -50,6 +63,6 @@ int main() {
         system("cls || clear"); // limpa tela (windows ou linux)
     }
 
-    printf("\nFim do jogo\n");
+    printf("\nFim do jogo!\n");
     return 0;
 }
