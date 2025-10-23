@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include "navios.c"
+#include <windows.h>
 
 
 void montarTabuleiroJogador(char tabuleiro[TAM][TAM]) {
@@ -11,19 +12,45 @@ void montarTabuleiroJogador(char tabuleiro[TAM][TAM]) {
 }
 
 void mostrarTabuleiroJogador(char tabuleiro[TAM][TAM]) {
-    printf("==========================\n");
-    printf("  x  | a b c d e f g h i j\n");
-    printf("-----|--------------------\n");
+    SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 79);
+    printf("============================\n");
+    printf("  x  | a b c d e f g h i j |\n");
+    printf("-----|---------------------|");
+    SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 7);
+    printf("\n");
+
     for (int linha = 0; linha < TAM; linha++) {
+        SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 244);
         if (linha < 9) {
             printf(" ");
         }
         printf(" %d  | ", linha + 1);
+        
         for (int coluna = 0; coluna < TAM; coluna++) {
-            printf("%c ", tabuleiro[linha][coluna]);
+            switch (tabuleiro[linha][coluna]) {
+                case 'X':
+                    SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 9);
+                    printf("%c ", tabuleiro[linha][coluna]);
+                    break;
+                case '!':
+                    SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 12);
+                    printf("%c ", tabuleiro[linha][coluna]);
+                    break;
+                case '~':
+                    SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 31);
+                    printf("%c ", tabuleiro[linha][coluna]);
+                    break;
+                case 'N':
+                    printf("%c ", tabuleiro[linha][coluna]);
+                    break;
+            }
+                
         }
-        printf("\n");
+        printf("|\n");
     }
+    SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 79);
+    printf("============================\n");
+    SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 7);
 }
 
 void tentativaAcerto(char tabuleiro[TAM][TAM], char tabuleiroJogador[TAM][TAM]) {
