@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "tabuleiro.c"
+#include <time.h>
 
 // verifica se ainda tem navios no tabuleiro inimigo
 int verificarVitoria(char tabuleiro[TAM][TAM]) {
@@ -15,6 +16,7 @@ int verificarVitoria(char tabuleiro[TAM][TAM]) {
 }
 
 int main() {
+    srand(time(NULL)); //gera números aleatórios a cada execução
     printf("BATALHA NAVAL\n");
 
     // tabuleiros com os navios

@@ -1,7 +1,5 @@
-
 #include <stdio.h>
 #include <stdlib.h>
-#include <time.h>
 
 #define TAM 10 //tabuleiro 10x10
 #define AGUA '~' //símbolo da água
@@ -41,8 +39,6 @@ void colocarNavio(char tabuleiro[TAM][TAM], int linha, int coluna, int tamanho, 
 void posicionarNaviosAutomatico(char tabuleiro[TAM][TAM]) {
     int tamanhos[] = {4, 3, 3, 2, 2};
     int numNavios = 5;
-
-    srand(time(NULL)); //gera números aleatórios a cada execução
 
     for (int n = 0; n < numNavios; n++) {
         int linha, coluna;
