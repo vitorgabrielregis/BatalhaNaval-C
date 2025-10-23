@@ -30,20 +30,15 @@ void mostrarTabuleiroJogador(char tabuleiro[TAM][TAM]) {
             switch (tabuleiro[linha][coluna]) {
                 case 'X':
                     SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 9);
-                    printf("%c ", tabuleiro[linha][coluna]);
                     break;
                 case '!':
                     SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 12);
-                    printf("%c ", tabuleiro[linha][coluna]);
                     break;
                 case '~':
                     SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 31);
-                    printf("%c ", tabuleiro[linha][coluna]);
-                    break;
-                case 'N':
-                    printf("%c ", tabuleiro[linha][coluna]);
                     break;
             }
+            printf("%c ", tabuleiro[linha][coluna]);
                 
         }
         printf("|\n");
