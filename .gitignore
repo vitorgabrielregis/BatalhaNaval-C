@@ -1,0 +1,5 @@
+# Ignorar pasta de saída
+output/
+
+# Ignorar configurações do VS Code
+.vscode/
