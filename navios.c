@@ -38,9 +38,8 @@ void colocarNavio(char tabuleiro[TAM][TAM], int linha, int coluna, int tamanho, 
 //colocando os navios automaticamente
 void posicionarNaviosAutomatico(char tabuleiro[TAM][TAM]) {
     int tamanhos[] = {4, 3, 3, 2, 2};
-    int numNavios = 5;
 
-    for (int n = 0; n < numNavios; n++) {
+    for (int n = 0; n < NUM_NAVIOS; n++) {
         int linha, coluna;
         char direcao;
 
