@@ -104,8 +104,6 @@ bool navio_afundado(Navio *nv) {
     -1 -> inválido (fora do tabuleiro) ou já atacado
 */
 int processa_ataque(Tabuleiro *t, int linha, int coluna){
-    if (linha < 0 || coluna < 0 || linha >= t->n || column >= t->n) return -1; /* cuidado com typo 'column' */
-    /* NOTE: there was a typo above intentionally to catch copy mistakes - fix below */
     if (linha < 0 || coluna < 0 || linha >= t->n || coluna >= t->n) return -1;
 
     CelulaEstado estado = t->cel[linha][coluna];
