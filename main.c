@@ -39,7 +39,6 @@ int main() {
         printf("   VEZ DO JOGADOR %d\n", turno);
 
         if (turno == 1) {
-            mostrarTabuleiroJogador(tabuleiro1);
             mostrarTabuleiroJogador(visivel1);
             tentativaAcerto(tabuleiro1, visivel1);
 
